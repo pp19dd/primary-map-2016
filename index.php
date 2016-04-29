@@ -9,8 +9,9 @@ $candidates = array(
 
 
 
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+?>
+<!doctype html>
+<html>
   <head>
     <title>Primary Map 2016</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -54,10 +55,6 @@ background-color: red;
 
 .candidate-name { font-weight: bold }
 .candidate-name, .candidate-delegate-count-compute { color: #333 }
-/*
-.candidate-party-d .candidate-name, .candidate-party-d .candidate-delegate-count-compute { color: #232066 }
-.candidate-party-r .candidate-name, .candidate-party-r .candidate-delegate-count-compute { color: #e91d0e }
-*/
 .candidate-party-d.candidate-click-selected .candidate-inner { background-color: #232066; border: 4px solid #232066 }
 .candidate-party-r.candidate-click-selected .candidate-inner { background-color: #e91d0e; }
 
