@@ -74,7 +74,7 @@ background-color: red;
 .candidates-note-d { float: right; padding-right:2em; color: #232066 }
 .candidates-note-r { float: left; padding-left: 2em; color: #e91d0e }
 
-.tooltip { width: 100% }
+.tooltip { width: 200px }
 .tooltip * { font-size: 12px }
 .tooltip-name { width: 50px }
 
