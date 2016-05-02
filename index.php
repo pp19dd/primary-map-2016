@@ -263,7 +263,13 @@ jQuery(document).ready(function () {
                 var c = $(this).attr("data-color");
                 var p = $(this).attr("data-party");
 
-                highlight_candidate(k, c, p);
+                if ( $(this).hasClass("candidate-click-selected") ) {
+                    $(".candidate").removeClass("candidate-click-selected");
+                    highlight_states_that_voted();
+                } else {
+                    highlight_candidate(k, c, p);
+                }
+
                 return(false);
             });
 
