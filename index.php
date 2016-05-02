@@ -7,8 +7,6 @@ $candidates = array(
     array( "name" => "Sanders",    "color" => "#232066", "party" => "d" ),
 );
 
-
-
 ?>
 <!doctype html>
 <html>
@@ -42,40 +40,54 @@ background-color: red;
 }
 
 /* div version */
+.filter { margin-bottom: 1.25%; }
 .candidates { }
-.candidate { width: 20%; float: left; text-align: center; }
-.candidate-container { padding: 0.25em; }
-.candidate-inner { border-radius:0.5em; cursor: pointer; padding-top:0.5em; padding-bottom:0.5em; border: 4px solid #999 }
+.candidate { width: 19.75%; float: left; text-align: center; }
+.candidate-container { }
+.candidate-inner { cursor: pointer; padding-top:0.5em; padding-bottom:0.5em; }
 
 
 .candidate-inner { transition: background-color 100ms linear; }
 
-.candidate-party-d .candidate-inner { border: 4px solid #423bbf }
-.candidate-party-r .candidate-inner { border: 4px solid #e91d0e }
+.candidate-party-d { background-color: #232066; }
+.candidate-party-r { background-color: #e91d0e; }
+
+.candidate.candidate-clinton { margin-left: 1.25%; }
+
+.candidate-party-d .candidate-inner { border-bottom: 4px solid #232066; }
+.candidate-party-r .candidate-inner { border-bottom: 4px solid #e91d0e; }
 
 .candidate-name { font-weight: bold }
-.candidate-name, .candidate-delegate-count-compute { color: #333 }
-.candidate-party-d.candidate-click-selected .candidate-inner { background-color: #232066; border: 4px solid #232066 }
-.candidate-party-r.candidate-click-selected .candidate-inner { background-color: #e91d0e; }
+.candidate-name, .candidate-delegate-count-compute { color: white; }
+.candidate-party-d.candidate-click-selected .candidate-inner { background-color: #141239; border-bottom: 4px solid #fff; }
+.candidate-party-r.candidate-click-selected .candidate-inner { background-color: #c4180c; border-bottom: 4px solid #fff; }
 
-.candidate-party-d.candidate-click-selected .candidate-name { color: white; }
+.candidate-party-d.candidate-click-selected .candidate-name,
 .candidate-party-r.candidate-click-selected .candidate-name { color: white; }
 
-.candidate-party-d.candidate-click-selected .candidate-delegate-count-compute { color: white; }
+.candidate-party-d.candidate-click-selected .candidate-delegate-count-compute,
 .candidate-party-r.candidate-click-selected .candidate-delegate-count-compute { color: white; }
 
 .candidate-click-selected { }
 
 .candidates-note { }
-.candidates-note-all { font-size: 0.75em }
-.candidates-note-d { float: right; padding-right:2em; color: #232066 }
-.candidates-note-r { float: left; padding-left: 2em; color: #e91d0e }
+.candidates-note-all { color: #f8f8f8; font-size: 0.8em; padding: 0 1% 1em 1%; text-align: center; }
+    .candidates-note-all .candidates-note-text { border-top-width: 1px; border-top-style: solid; padding-top: 1em; }
+.candidates-note-d { float: right; background-color: #232066; margin-left: 1.25%; width: 37.5%; }
+    .candidates-note-d .candidates-note-text { border-top-color: #6c67cf; }
+.candidates-note-r { float: left; background-color: #e91d0e; width: 57.25%; }
+    .candidates-note-r .candidates-note-text { border-top-color: #f66d63; }
 
 .tooltip { width: 200px }
 .tooltip * { font-size: 12px }
 .tooltip-name { width: 50px }
 
 .clearDiv { clear: both }
+
+@media (max-width: 500px) {
+    .mobile-hide { display: none; }
+}
+
 </style>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -281,8 +293,8 @@ jQuery(document).ready(function () {
         </div>
         <div class="clearDiv"></div>
         <div class="candidates-note">
-            <div class="candidates-note-all candidates-note-r">Need 1,237 for nomination.</div>
-            <div class="candidates-note-all candidates-note-d">Need 2,283 for nomination.</div>
+            <div class="candidates-note-all candidates-note-r"><div class="candidates-note-text">Need 1,237 for nomination.</div></div>
+            <div class="candidates-note-all candidates-note-d"><div class="candidates-note-text">Need 2,283<span class="mobile-hide"> for nomination</span>.</div></div>
         </div>
         <div class="clearDiv"></div>
     </div>
