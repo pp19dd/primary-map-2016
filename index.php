@@ -119,7 +119,7 @@ jQuery(document).ready(function () {
                     var x = {};
                     x[code] = color;
 
-                    if( state[candidate] == 0 ) {
+                    if( did_state_vote(state) === false ) {
                         x[code] = "#ffffff";
                     }
 
@@ -158,6 +158,23 @@ jQuery(document).ready(function () {
             }
 
             function did_candidate_win_state(candidate, state, party) {
+
+                // an editor can override an outcome that'd normally be computed
+                var override = (party === 'd' ? state.winner_dem : state.winner_gop );
+                if( override.trim().length > 0 ) {
+
+                    // state does not have a clear outright winner
+                    if( override === "undecided" ) {
+                        return( false );
+                    }
+
+                    // candidate is the winner
+                    if( candidate === override ) {
+                        return( true );
+                    } else {
+                        return( false );
+                    }
+                }
 
                 var votes_for_candidate = parseInt(state[candidate]);
 
