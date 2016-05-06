@@ -60,7 +60,7 @@ background-color: red;
 
 .candidate-name { font-weight: bold }
 .candidate-name, .candidate-delegate-count-compute { color: white; }
-.candidate-party-d.candidate-click-selected .candidate-inner { background-color: #141239; border-bottom: 8px solid silver; }
+.candidate-party-d.candidate-click-selected .candidate-inner { background-color: gray; border-bottom: 8px solid silver; }
 .candidate-party-r.candidate-click-selected .candidate-inner { background-color: #c4180c; border-bottom: 8px solid silver; }
 
 .candidate-party-d.candidate-click-selected .candidate-name,
@@ -298,8 +298,8 @@ jQuery(document).ready(function () {
                 var p = $(this).attr("data-party");
 
                 if ( $(this).hasClass("candidate-click-selected") ) {
-                    $(".candidate").removeClass("candidate-click-selected");
-                    highlight_states_that_voted();
+                    // $(".candidate").removeClass("candidate-click-selected");
+                    // highlight_states_that_voted();
                 } else {
                     highlight_candidate(k, c, p);
                 }
