@@ -55,13 +55,13 @@ background-color: red;
 
 .candidate.candidate-clinton { margin-left: 1.25%; }
 
-.candidate-party-d .candidate-inner { border-bottom: 4px solid #232066; }
-.candidate-party-r .candidate-inner { border-bottom: 4px solid #e91d0e; }
+.candidate-party-d .candidate-inner { border-bottom: 8px solid #232066; }
+.candidate-party-r .candidate-inner { border-bottom: 8px solid #e91d0e; }
 
 .candidate-name { font-weight: bold }
 .candidate-name, .candidate-delegate-count-compute { color: white; }
-.candidate-party-d.candidate-click-selected .candidate-inner { background-color: #141239; border-bottom: 4px solid #fff; }
-.candidate-party-r.candidate-click-selected .candidate-inner { background-color: #c4180c; border-bottom: 4px solid #fff; }
+.candidate-party-d.candidate-click-selected .candidate-inner { background-color: #141239; border-bottom: 8px solid silver; }
+.candidate-party-r.candidate-click-selected .candidate-inner { background-color: #c4180c; border-bottom: 8px solid silver; }
 
 .candidate-party-d.candidate-click-selected .candidate-name,
 .candidate-party-r.candidate-click-selected .candidate-name { color: white; }
@@ -72,12 +72,12 @@ background-color: red;
 .candidate-click-selected { }
 
 .candidates-note { }
-.candidates-note-all { color: #f8f8f8; font-size: 0.8em; padding: 0 1% 1em 1%; text-align: center; }
-    .candidates-note-all .candidates-note-text { border-top-width: 1px; border-top-style: solid; padding-top: 1em; }
-.candidates-note-d { background-color: #232066; margin-left: 1.25%; width: 37.5%; }
-    .candidates-note-d .candidates-note-text { border-top-color: #6c67cf; }
+.candidates-note-all { color: #f8f8f8; font-size: 0.8em; padding: 0 1% 1em 1%; text-align: left; }
+    .candidates-note-all .candidates-note-text { padding-top: 1em; }
+.candidates-note-d { /*background-color: #232066;*/ margin-left: 1.25%; width: 37.5%; color: black; }
+    .candidates-note-d .candidates-note-text {  }
 .candidates-note-r { float: left; background-color: #e91d0e; width: 57.25%; }
-    .candidates-note-r .candidates-note-text { border-top-color: #f66d63; }
+    .candidates-note-r .candidates-note-text { }
 
 
 
@@ -93,8 +93,7 @@ background-color: red;
 }
 
 /* 2016-05-06 */
-
-
+.candidate-container { border:2px solid white }
 </style>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -285,6 +284,15 @@ jQuery(document).ready(function () {
             });
 
             $(".filter div.candidate").click(function() {
+                var r = $(this).attr("data-reset");
+
+                if( typeof r != "undefined" && r == "yes" ) {
+                    $(".candidate").removeClass("candidate-click-selected");
+                    highlight_states_that_voted();
+                    $(this).addClass("candidate-click-selected");
+                    return;
+                }
+
                 var k = $(this).attr("data-key");
                 var c = $(this).attr("data-color");
                 var p = $(this).attr("data-party");
@@ -322,6 +330,16 @@ jQuery(document).ready(function () {
                 </div>
             </div>
 <?php } ?>
+<div class="candidate candidate-party-d candidate-reset candidate-click-selected" data-reset="yes">
+    <div class="candidate-container">
+        <div class="candidate-inner">
+            <div class="candidate-name">Remaining</div>
+            <div class="candidate-delegate-count-compute">Votes</div>
+        </div>
+    </div>
+</div>
+
+
         </div>
         <div class="clearDiv"></div>
         <div class="candidates-note">
