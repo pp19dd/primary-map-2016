@@ -1,8 +1,8 @@
 <?php
 $candidates = array(
-    array( "name" => "Trump",      "color" => "#e91d0e", "party" => "r" ),
-    array( "name" => "Cruz",       "color" => "#e91d0e", "party" => "r" ),
-    array( "name" => "Kasich",     "color" => "#e91d0e", "party" => "r" ),
+    // array( "name" => "Trump",      "color" => "#e91d0e", "party" => "r" ),
+    // array( "name" => "Cruz",       "color" => "#e91d0e", "party" => "r" ),
+    // array( "name" => "Kasich",     "color" => "#e91d0e", "party" => "r" ),
     array( "name" => "Clinton",    "color" => "#232066", "party" => "d" ),
     array( "name" => "Sanders",    "color" => "#232066", "party" => "d" ),
 );
@@ -27,6 +27,7 @@ padding: 0;
 margin: 0;
 width: 100%;
 height: 100%;
+overflow: hidden;
 }
 * {
     font-family: Arial,Helvetica,sans-serif;
@@ -73,10 +74,13 @@ background-color: red;
 .candidates-note { }
 .candidates-note-all { color: #f8f8f8; font-size: 0.8em; padding: 0 1% 1em 1%; text-align: center; }
     .candidates-note-all .candidates-note-text { border-top-width: 1px; border-top-style: solid; padding-top: 1em; }
-.candidates-note-d { float: right; background-color: #232066; margin-left: 1.25%; width: 37.5%; }
+.candidates-note-d { background-color: #232066; margin-left: 1.25%; width: 37.5%; }
     .candidates-note-d .candidates-note-text { border-top-color: #6c67cf; }
 .candidates-note-r { float: left; background-color: #e91d0e; width: 57.25%; }
     .candidates-note-r .candidates-note-text { border-top-color: #f66d63; }
+
+
+
 
 .tooltip { width: 200px }
 .tooltip * { font-size: 12px }
@@ -87,6 +91,9 @@ background-color: red;
 @media (max-width: 500px) {
     .mobile-hide { display: none; }
 }
+
+/* 2016-05-06 */
+
 
 </style>
 
@@ -149,7 +156,8 @@ jQuery(document).ready(function () {
 
             function did_state_vote( state ) {
                 var count = 0;
-                var k = ["clinton", "cruz", "kasich", "sanders", "trump"];
+                // var k = ["clinton", "cruz", "kasich", "sanders", "trump"];
+                var k = ["clinton", "sanders"];
                 for( var i = 0; i < k.length; i++ ) {
                     count += parseInt(state[k[i]]);
                 }
@@ -256,13 +264,14 @@ jQuery(document).ready(function () {
 
                     label.html(
                         "<strong>" + states[code].state + "</strong><br/><hr/>" +
+                        /*
                         "Republican Delegates: " + states[code].total_delegates_gop + "<br/>" +
                         html_graph([
                             { max: states[code].total_delegates_gop, name: "Trump", count: states[code].trump },
                             { max: states[code].total_delegates_gop, name: "Cruz", count: states[code].cruz },
                             { max: states[code].total_delegates_gop, name: "Kasich", count: states[code].kasich }
                         ], "#e91d0e") +
-                        "<hr/>" +
+                        "<hr/>" +*/
                         "Democratic Delegates: " + states[code].total_delegates_dem + "<br/>" +
                         html_graph([
                             { max: states[code].total_delegates_dem, name: "Clinton", count: states[code].clinton },
@@ -316,7 +325,7 @@ jQuery(document).ready(function () {
         </div>
         <div class="clearDiv"></div>
         <div class="candidates-note">
-            <div class="candidates-note-all candidates-note-r"><div class="candidates-note-text">Need 1,237 for nomination.</div></div>
+            <!--<div class="candidates-note-all candidates-note-r"><div class="candidates-note-text">Need 1,237 for nomination.</div></div>-->
             <div class="candidates-note-all candidates-note-d"><div class="candidates-note-text">Need 2,283<span class="mobile-hide"> for nomination</span>.</div></div>
         </div>
         <div class="clearDiv"></div>
