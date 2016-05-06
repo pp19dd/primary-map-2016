@@ -74,7 +74,7 @@ background-color: red;
 .candidates-note { }
 .candidates-note-all { color: #f8f8f8; font-size: 0.8em; padding: 0 1% 1em 1%; text-align: left; }
     .candidates-note-all .candidates-note-text { padding-top: 1em; }
-.candidates-note-d { /*background-color: #232066;*/ margin-left: 1.25%; width: 37.5%; color: black; }
+.candidates-note-d { /*background-color: #232066;*/ margin-left: 1.25%; /*width: 37.5%;*/ color: black; }
     .candidates-note-d .candidates-note-text {  }
 .candidates-note-r { float: left; background-color: #e91d0e; width: 57.25%; }
     .candidates-note-r .candidates-note-text { }
@@ -89,7 +89,8 @@ background-color: red;
 .clearDiv { clear: both }
 
 @media (max-width: 500px) {
-    .mobile-hide { display: none; }
+    /*.mobile-hide { display: none; }*/
+    .candidate { width: 30% }
 }
 
 /* 2016-05-06 */
